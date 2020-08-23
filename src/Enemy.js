@@ -26,6 +26,7 @@ export default class Enemy extends MovementEntity {
 
   update(player) {
     const direction = player.position.subtract(this.position);
+    direction.normalize();
     this.setVelocityX(direction.x);
     this.setVelocityY(direction.y);
     this.rotation = Phaser.Math.Angle.BetweenPoints(this.position, player.position);
